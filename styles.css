@@ -1,0 +1,31 @@
+body {
+    height: 100vh;
+    width: 100%;
+    background: radial-gradient(
+        circle at 5% 0%,
+        rgb(245, 245, 76) 0%,
+        rgb(248, 236, 213) 10%,
+        rgb(137, 193, 241) 30%,
+        rgb(10, 92, 125) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto, sans-serif;
+}
+
+.thermometer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+footer p {
+    color: hotpink;
+}
