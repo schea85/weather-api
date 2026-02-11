@@ -13,9 +13,15 @@ navigator.geolocation.getCurrentPosition(position => {
 
             // convert date to time str
             let sunriseDate = new Date(sunrise);
-            let sunriseTime = sunriseDate.toLocaleTimeString();
+            let sunriseTime = sunriseDate.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit"
+            });
             let sunsetDate = new Date(sunset);
-            let sunsetTime = sunsetDate.toLocaleTimeString();
+            let sunsetTime = sunsetDate.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit"
+            });
 
             // weatherCode description
             function getWeatherDescription(weatherCode){
@@ -45,6 +51,8 @@ navigator.geolocation.getCurrentPosition(position => {
                     return "Thunderstorm: Slight or moderate";
                 } else if ([96, 99].includes(weatherCode)){
                     return "Thunderstorm with slight and heavy hail";
+                } else {
+                    return "";
                 }
             };
 
