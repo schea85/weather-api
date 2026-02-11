@@ -2,7 +2,7 @@ body {
     height: 100vh;
     width: 100%;
     background: radial-gradient(
-        circle at 5% 0%,
+        circle at -5% -5%,
         rgb(245, 245, 76) 0%,
         rgb(248, 236, 213) 10%,
         rgb(137, 193, 241) 30%,
@@ -21,6 +21,31 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.sunrise-sunset {
+    border: 1px solid rgb(183, 175, 175);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 100px 30px;
+    place-items: center;
+}
+
+.sunrise-sunset p {
+    font-size: .7rem;
+}
+
+.sunrise-img {
+    grid-column: 1 / 2;
+    justify-content: center;
+}
+
+.sunset-img {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    
+}
+
 
 footer {
     position: absolute;
