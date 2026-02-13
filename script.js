@@ -8,6 +8,7 @@ navigator.geolocation.getCurrentPosition(position => {
             console.log(data)
             let fahrenheit = cToF(data.current_weather.temperature);
             let weatherCode = data.current_weather.weathercode;
+            let isDay = data.current_weather.is_day;
             let sunrise = data.daily.sunrise[0];
             let sunset = data.daily.sunset[0];
             let windSpeed = data.current_weather.windspeed;
@@ -23,6 +24,15 @@ navigator.geolocation.getCurrentPosition(position => {
                 hour: "2-digit",
                 minute: "2-digit"
             });
+
+            // day or night mode
+            if (isDay === 1){
+                document.body.classList.add("day");
+                document.body.classList.remove("night");
+            } else {
+                document.body.classList.add("night");
+                document.body.classList.remove("day");
+            }
 
             // weatherCode description
             function getWeatherDescription(weatherCode){
@@ -58,11 +68,12 @@ navigator.geolocation.getCurrentPosition(position => {
             };
 
             let weatherIcon = data.current_weather.weathercode;
-            function getWeatherIcon(weatherIcon){
+            // weather icon
+            function getWeatherIcon(weatherIcon, isDay){
                 if (weatherIcon === 0){
-                    return "images/sun.png"
+                    return isDay ? "images/sun.png" : "images/night.png"
                 } else if ([1,2,3,45,48].includes(weatherIcon)){
-                    return "images/partly-cloudy.png";
+                    return isDay ? "images/partly-cloudy.png" : "images/clouds.png";
                 } else if ([51,53,55,56,57,61,67,80,81,82].includes(weatherIcon)){
                     return "images/rain.png";
                 } else if ([71,73,75,77,85,86].includes(weatherIcon)){
@@ -90,7 +101,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 <img class="sunset-img" width="75" height="75" src="https://img.icons8.com/glassmorphism/48/partly-cloudy-night.png" alt="partly-cloudy-night"/>
                 <p class="sunset-time">${sunsetTime}</p>
                 <img src="images/wind.png" class="wind-img">
-                <p class="wind">${windSpeed}km/hr</p>
+                <p class="wind">${kmToMiles(windSpeed)}mph</p>
             </div>
             `;
 
@@ -104,3 +115,7 @@ navigator.geolocation.getCurrentPosition(position => {
 function cToF(celsius){
     return Math.round((celsius * 9/5) + 32);
 };
+
+function kmToMiles(kph){
+    return Math.round((kph / 1.609));
+}

@@ -1,19 +1,47 @@
+html,
 body {
-    height: 100vh;
+    overscroll-behavior: none;
+    overflow: hidden;
+}
+
+body {
+    height: 100dvh;
     width: 100%;
     overflow: hidden;
-    background: radial-gradient(
-        circle at 0% 0%,
-        rgb(245, 245, 76) 0%,
-        rgb(248, 236, 213) 10%,
-        rgb(137, 193, 241) 30%,
-        rgb(10, 92, 125) 100%
-    );
+    background-repeat:no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: Roboto, sans-serif;
+}
+
+body.day {
+    background: radial-gradient(
+        circle at 1% 1%,
+        rgb(245, 245, 76) 0%,
+        rgb(248, 236, 213) 10%,
+        rgb(137, 193, 241) 30%,
+        rgb(10, 92, 125) 100%
+    );
+}
+
+body.night {
+    background: linear-gradient(
+        #0b1d3a,
+        #020111
+    );
+    color: white;
+    background-image: url("images/nightsky.jpg");
+    background-size: cover;
+}
+
+body.night a {
+    color: white;
+}
+
+body.night .sunrise-sunset p {
+    color: black;
 }
 
 .thermometer {
