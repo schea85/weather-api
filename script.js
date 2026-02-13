@@ -5,13 +5,20 @@ navigator.geolocation.getCurrentPosition(position => {
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=sunrise,sunset&timezone=auto`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+
+            if (!data || !data.current_weather){
+                console.error("Weather data missing");
+                return;
+            }
+
+            console.log(data);
+
             let fahrenheit = cToF(data.current_weather.temperature);
             let weatherCode = data.current_weather.weathercode;
             let isDay = data.current_weather.is_day;
             let sunrise = data.daily.sunrise[0];
             let sunset = data.daily.sunset[0];
-            let windSpeed = data.current_weather.windspeed;
+            let windSpeed = kmToMiles(data.current_weather.windspeed);
 
             // convert date to time str
             let sunriseDate = new Date(sunrise);
@@ -83,7 +90,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 }
             }
 
-            let weatherIconPath = getWeatherIcon(weatherIcon);
+            let weatherIconPath = getWeatherIcon(weatherIcon, isDay);
             let description = getWeatherDescription(weatherCode);
 
             // weather info DOM
@@ -101,7 +108,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 <img class="sunset-img" width="75" height="75" src="https://img.icons8.com/glassmorphism/48/partly-cloudy-night.png" alt="partly-cloudy-night"/>
                 <p class="sunset-time">${sunsetTime}</p>
                 <img src="images/wind.png" class="wind-img">
-                <p class="wind">${kmToMiles(windSpeed)}mph</p>
+                <p class="wind">${windSpeed}mph</p>
             </div>
             `;
 
@@ -116,6 +123,6 @@ function cToF(celsius){
     return Math.round((celsius * 9/5) + 32);
 };
 
-function kmToMiles(kph){
-    return Math.round((kph / 1.609));
+function kmToMiles(kmh){
+    return (kmh / 1.609).toFixed(1);
 }
