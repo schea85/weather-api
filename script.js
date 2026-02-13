@@ -103,4 +103,4 @@ navigator.geolocation.getCurrentPosition(position => {
 
 function cToF(celsius){
     return Math.round((celsius * 9/5) + 32);
-}
+};
