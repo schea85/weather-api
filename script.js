@@ -5,11 +5,12 @@ navigator.geolocation.getCurrentPosition(position => {
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=sunrise,sunset&timezone=auto`)
         .then(response => response.json())
         .then(data => {
-
+            console.log(data)
             let fahrenheit = cToF(data.current_weather.temperature);
             let weatherCode = data.current_weather.weathercode;
             let sunrise = data.daily.sunrise[0];
             let sunset = data.daily.sunset[0];
+            let windSpeed = data.current_weather.windspeed;
 
             // convert date to time str
             let sunriseDate = new Date(sunrise);
@@ -56,12 +57,29 @@ navigator.geolocation.getCurrentPosition(position => {
                 }
             };
 
+            let weatherIcon = data.current_weather.weathercode;
+            function getWeatherIcon(weatherIcon){
+                if (weatherIcon === 0){
+                    return "/images/sun.png"
+                } else if ([1,2,3,45,48].includes(weatherIcon)){
+                    return "/images/party-cloudy.png";
+                } else if ([51,53,55,56,57,61,67,80,81,82].includes(weatherIcon)){
+                    return "/images/rain.png";
+                } else if ([71,73,75,77,85,86].includes(weatherIcon)){
+                    return "/images/snow.png";
+                } else if ([95,96,99].includes(weatherIcon)){
+                    return "/images/storm.png";
+                }
+            }
+
+            let weatherIconPath = getWeatherIcon(weatherIcon);
             let description = getWeatherDescription(weatherCode);
 
             // weather info DOM
             const display = document.querySelector(".thermometer");
             display.innerHTML = `
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="150px" viewBox="0 -960 960 960" width="150px" fill="#e3e3e3"><path d="M338.5-138.5Q280-197 280-280q0-51 23-96t68-67v-328q0-45.42 32-77.21Q435-880 480-880t77 31.79q32 31.79 32 77.21v328q45 22 68 67t23 96q0 83-58.5 141.5T480-80q-83 0-141.5-58.5ZM431-515h98v-53h-49v-39h49v-87h-49v-38.5h49V-771q0-20.83-14.12-34.91-14.13-14.09-35-14.09Q459-820 445-805.91q-14 14.08-14 34.91v256Z"/></svg>
+            <h2>Today's Weather</h2>
+            <img src="${weatherIconPath}" alt="weather icon" class="weather-icon">
             <h1>${fahrenheit}&deg;F</h1>
             <p>${description}</p>
             <div class="sunrise-sunset">
@@ -71,6 +89,8 @@ navigator.geolocation.getCurrentPosition(position => {
                 <p class="sunrise-time">${sunriseTime}</p>
                 <img class="sunset-img" width="75" height="75" src="https://img.icons8.com/glassmorphism/48/partly-cloudy-night.png" alt="partly-cloudy-night"/>
                 <p class="sunset-time">${sunsetTime}</p>
+                <img src="/images/wind.png" class="wind-img">
+                <p class="wind">${windSpeed}km/hr</p>
             </div>
             `;
 

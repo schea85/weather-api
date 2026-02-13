@@ -22,15 +22,22 @@ body {
     align-items: center;
 }
 
+.weather-icon {
+    width: 100%;
+    max-width: 80px;
+}
+
 /* sunrise-sunset dom */
 .sunrise-sunset {
     border: 1px solid rgb(85, 92, 72);
     border-radius: 10px;
+    box-shadow: 3px 3px grey;
     display: grid;
-    grid-template-columns: 150px 150px;
+    grid-template-columns: 150px 150px 150px;
     grid-template-rows: 100px 30px;
     place-items: center;
-    padding: 20px;
+    padding: 50px 30px;
+    background-color: whitesmoke;
 }
 
 .sunrise-sunset p {
@@ -48,10 +55,19 @@ body {
     
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
+.wind-img {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
 }
+
 footer p {
-    color: hotpink;
+    color: white
+}
+
+footer a {
+    color: black
+}
+
+footer a:hover {
+    font-size: 1.2rem;
 }
