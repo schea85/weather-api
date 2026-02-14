@@ -83,6 +83,7 @@ body.night .sunrise-sunset p {
     place-items: center;
     padding: 50px 30px;
     background-color: whitesmoke;
+    opacity: .5;
 }
 
 .sunrise-sunset p {
