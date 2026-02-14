@@ -31,7 +31,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 hour: "2-digit",
                 minute: "2-digit"
             });
-
+            
             // day or night mode
             if (isDay === 1){
                 document.body.classList.add("day");
@@ -73,24 +73,22 @@ navigator.geolocation.getCurrentPosition(position => {
                     return "";
                 }
             };
-
-            let weatherIcon = data.current_weather.weathercode;
             // weather icon
-            function getWeatherIcon(weatherIcon, isDay){
-                if (weatherIcon === 0){
+            function getWeatherIcon(weatherCode, isDay){
+                if (weatherCode === 0){
                     return isDay ? "images/sun.png" : "images/night.png"
-                } else if ([1,2,3,45,48].includes(weatherIcon)){
+                } else if ([1,2,3,45,48].includes(weatherCode)){
                     return isDay ? "images/partly-cloudy.png" : "images/clouds.png";
-                } else if ([51,53,55,56,57,61,67,80,81,82].includes(weatherIcon)){
+                } else if ([51,53,55,56,57,61,67,80,81,82].includes(weatherCode)){
                     return "images/rain.png";
-                } else if ([71,73,75,77,85,86].includes(weatherIcon)){
+                } else if ([71,73,75,77,85,86].includes(weatherCode)){
                     return "images/snow.png";
-                } else if ([95,96,99].includes(weatherIcon)){
+                } else if ([95,96,99].includes(weatherCode)){
                     return "images/storm.png";
                 }
             }
 
-            let weatherIconPath = getWeatherIcon(weatherIcon, isDay);
+            let weatherIconPath = getWeatherIcon(weatherCode, isDay);
             let description = getWeatherDescription(weatherCode);
 
             // weather info DOM

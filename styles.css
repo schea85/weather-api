@@ -17,26 +17,35 @@ body {
 }
 
 body.day {
-    background: radial-gradient(
+    /*background: radial-gradient(
         circle at 1% 1%,
         rgb(245, 245, 76) 0%,
         rgb(248, 236, 213) 10%,
         rgb(137, 193, 241) 30%,
         rgb(10, 92, 125) 100%
-    );
+    );*/
+    background-image: url("images/daytime-sky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 body.night {
-    background: linear-gradient(
-        #0b1d3a,
-        #020111
-    );
+    /*background: radial-gradient(
+        circle at 1% 1%,
+        rgba(233, 233, 226, 0.6) 1%,
+        rgba(0, 0, 0, 0.7) 10%,
+        rgb(11, 29, 58) 15%,
+        rgb(2,1,17) 100%
+    );*/
     color: white;
     background-image: url("images/nightsky.jpg");
     background-size: cover;
+    opacity: .8;
 }
 
-body.night a {
+body.night a,
+body.night p {
     color: white;
 }
 
@@ -60,7 +69,7 @@ body.night .sunrise-sunset p {
 .sunrise-sunset {
     border: 1px solid rgb(85, 92, 72);
     border-radius: 10px;
-    box-shadow: 3px 3px grey;
+    box-shadow: 3px 3px 6px lightgrey;
     display: grid;
     grid-template-columns: 150px 150px 150px;
     grid-template-rows: 100px 30px;
@@ -90,7 +99,7 @@ body.night .sunrise-sunset p {
 }
 
 footer p {
-    color: white
+    color: black;
 }
 
 footer a {
