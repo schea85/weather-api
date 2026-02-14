@@ -1,3 +1,10 @@
+.gravitas-one-regular {
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 html,
 body {
     overscroll-behavior: none;
@@ -100,6 +107,7 @@ body.night .sunrise-sunset p {
 
 footer p {
     color: black;
+    font-size: .8rem;
 }
 
 footer a {
@@ -107,5 +115,5 @@ footer a {
 }
 
 footer a:hover {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
