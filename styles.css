@@ -76,14 +76,14 @@ body.night .sunrise-sunset p {
 .sunrise-sunset {
     border: 1px solid rgb(85, 92, 72);
     border-radius: 10px;
-    box-shadow: 3px 3px 6px lightgrey;
+    box-shadow: 3px 3px 8px grey;
     display: grid;
     grid-template-columns: 150px 150px 150px;
     grid-template-rows: 100px 30px;
     place-items: center;
     padding: 50px 30px;
-    background-color: whitesmoke;
-    opacity: .5;
+    background-color: rgba(255, 255, 255, .1);
+    
 }
 
 .sunrise-sunset p {
