@@ -1,7 +1,7 @@
 # weather-api
 
-<p> Be sure to have browser's location on. </p>
+Be sure to have browser's location on.
 
-<p> Images and icons by Freepik, w3, and Icons8.</p>
+Images and icons by Freepik, w3, and Icons8.
 
-<a href="https://schea85.github.io/weather-api" target="_blank">Live Preview</a>
+[My Weather API Project](https://github.com/schea85/weather-api)
