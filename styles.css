@@ -54,7 +54,7 @@ h2 {
 }
 
 .description {
-    font-size: .9rem;
+    font-size: 1rem;
 }
 
 .weather-icon {
@@ -71,7 +71,7 @@ h2 {
 }
 
 .sunrise-sunset p {
-    font-size: .8rem;
+    font-size: 1rem;
 }
 
 .sunrise-sunset img {
@@ -130,7 +130,7 @@ media queries
     }
 
     .sunrise-sunset p {
-        font-size: .7rem;
+        font-size: 1rem;
     }
 
     .sunrise-img {
