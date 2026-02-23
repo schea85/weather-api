@@ -55,6 +55,9 @@ h2 {
 
 .description {
     font-size: 1rem;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
 }
 
 .weather-icon {
@@ -71,8 +74,10 @@ h2 {
 }
 
 .sunrise-sunset p {
-    font-size: 1rem;
-}
+        font-size: .9rem;
+        font-weight: 400;
+        font-family: Roboto, sans-serif;
+    }
 
 .sunrise-sunset img {
     width: 100%;
@@ -132,6 +137,8 @@ media queries
 
     .sunrise-sunset p {
         font-size: 1rem;
+        font-weight: 400;
+        font-family: Roboto, sans-serif;
     }
 
     .sunrise-img {
