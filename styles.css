@@ -4,17 +4,9 @@
   font-style: normal;
 }
 
-html,
 body {
-    overscroll-behavior: none;
-    overflow: hidden;
-}
-
-body {
-    height: 100dvh;
-    width: 100%;
-    overflow: hidden;
-    background-repeat:no-repeat;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,13 +15,6 @@ body {
 }
 
 body.day {
-    /*background: radial-gradient(
-        circle at 1% 1%,
-        rgb(245, 245, 76) 0%,
-        rgb(248, 236, 213) 10%,
-        rgb(137, 193, 241) 30%,
-        rgb(10, 92, 125) 100%
-    );*/
     background-image: url("images/daytime-sky.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,16 +22,10 @@ body.day {
 }
 
 body.night {
-    /*background: radial-gradient(
-        circle at 1% 1%,
-        rgba(233, 233, 226, 0.6) 1%,
-        rgba(0, 0, 0, 0.7) 10%,
-        rgb(11, 29, 58) 15%,
-        rgb(2,1,17) 100%
-    );*/
     color: white;
     background-image: url("images/nightsky.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
     opacity: .8;
 }
 
@@ -66,6 +45,18 @@ body.night .sunrise-sunset p {
     align-items: center;
 }
 
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+.description {
+    font-size: .5rem;
+}
+
 .weather-icon {
     width: 100%;
     max-width: 80px;
@@ -73,45 +64,33 @@ body.night .sunrise-sunset p {
 
 /* sunrise-sunset dom */
 .sunrise-sunset {
-    border: 1px solid rgb(85, 92, 72);
-    border-radius: 10px;
-    box-shadow: 3px 3px 8px grey;
-    display: grid;
-    grid-template-columns: 150px 150px 150px;
-    grid-template-rows: 100px 30px;
-    place-items: center;
-    padding: 50px 30px;
-    background-color: rgba(255, 255, 255, .1);
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .sunrise-sunset p {
-    font-size: .7rem;
+    font-size: .5rem;
 }
 
-.sunrise-img {
-    grid-column: 1 / 2;
-    justify-content: center;
+.sunrise-sunset img {
+    width: 100%;
+    max-width: 40px;
+    height: 100%;
+    max-height: 40px;
 }
 
-.sunset-img {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    
+.sunrise-sunset svg {
+    width: 100%;
+    max-width: 40px
 }
 
-.wind-img {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-}
 
-footer p {
+footer p,
+footer a {
     color: black;
     font-size: .8rem;
-}
-
-footer a {
-    color: black
 }
 
 footer a:hover {
@@ -121,15 +100,65 @@ footer a:hover {
 /* ==========
 media queries
 ========== */
-@media (max-width: 768px){
+@media (min-width: 500px){
     .description {
-        font-size: .8rem;
+        font-size: 1rem;
     }
+
+    .sunrise-sunset {
+        border: 1px solid rgb(85, 92, 72);
+        border-radius: 10px;
+        box-shadow: 3px 3px 8px grey;
+        display: grid;
+        grid-template-columns: 150px 150px 150px;
+        grid-template-rows: 100px 30px;
+        place-items: center;
+        padding: 50px 30px;
+        background-color: rgba(255, 255, 255, .1);  
+    }
+
+    .sunrise-sunset img {
+        width: 100%;
+        max-width: 70px;
+        height: 100%;
+        max-height: 70px;
+    }
+
+    .sunrise-sunset svg {
+        width: 100%;
+        max-width: 70px;
+    }
+
+    .sunrise-sunset p {
+        font-size: .7rem;
+    }
+
+    .sunrise-img {
+        grid-column: 1 / 2;
+        justify-content: center;
+    }
+
+    .sunset-img {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .wind-img {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    } 
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
 }
 
-@media (max-width: 500px){
-    .description {
-        font-size: .6rem;
-        
-    }
-}

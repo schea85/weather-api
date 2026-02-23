@@ -8,6 +8,8 @@ body {
     margin: 0;
     background-color: rgb(9, 9, 79);
     color: white;
+    height: 100vh;
+    width: 100vw;
 }
 
 .navbar {
@@ -42,11 +44,14 @@ body {
 }
 
 .display-info-container {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
     color: #D0F4FF;
     margin-top: 50px;
+    padding: 20px;
 }
 
 .display-info-container p {
@@ -54,7 +59,8 @@ body {
     line-height: 1.3;
 }
 
-footer {
+footer,
+footer p {
     text-align: center;
     margin-top: 50px;
 }

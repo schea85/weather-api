@@ -46,7 +46,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 if (weatherCode === 0){
                     return "Clear sky"
                 } else if ([1,2,3].includes(weatherCode)){
-                    return "Mainly clear, partly cloudy, and overcast";
+                    return "Partly cloudy and overcast";
                 } else if ([45, 48].includes(weatherCode)){
                     return "Fog"
                 } else if ([51, 53, 55].includes(weatherCode)){
@@ -64,7 +64,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 } else if ([80, 81, 82].includes(weatherCode)){
                     return "Rain showers";
                 } else if ([85, 86].includes(weatherCode)){
-                    return "Snow showers slight and heavy";
+                    return "Snow showers";
                 } else if ([95].includes(weatherCode)){
                     return "Thunderstorm";
                 } else if ([96, 99].includes(weatherCode)){
@@ -106,7 +106,7 @@ navigator.geolocation.getCurrentPosition(position => {
                 <img class="sunset-img" width="75" height="75" src="https://img.icons8.com/glassmorphism/48/partly-cloudy-night.png" alt="partly-cloudy-night"/>
                 <p class="sunset-time">${sunsetTime}</p>
                 <img src="images/wind.png" class="wind-img">
-                <p class="wind">${windSpeed}mph</p>
+                <p class="wind">${windSpeed} mph</p>
             </div>
             `;
 
