@@ -113,7 +113,7 @@ navigator.geolocation.getCurrentPosition(position => {
             console.log(fahrenheit, description, sunriseTime, sunsetTime);
         })
         .catch(error =>
-            console.error(error)
+            console.error(`Error: ${error}`)
         )
 })
 
