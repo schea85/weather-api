@@ -112,15 +112,28 @@ navigator.geolocation.getCurrentPosition(position => {
 
             console.log(fahrenheit, description, sunriseTime, sunsetTime);
         })
-        .catch(error =>
-            console.error(`Error: ${error}`)
-        )
-})
+        .catch(error => {
+            console.error(`Error: ${error}`);
+            showError("Unable to fetch data.");
+        });
+    },
+    error => {
+        console.error("Geolocation error:", error);
+        showError("Unable to fetch data.");
+    }
+);
 
+// conversion
 function cToF(celsius){
     return Math.round((celsius * 9/5) + 32);
 };
 
+// conversion
 function kmToMiles(kmh){
     return (kmh / 1.609).toFixed(1);
+}
+
+// display error msg on page
+function showError(message){
+    document.querySelector(".thermometer").innerHTML = `<p class="center">${message}</p>`;
 }
